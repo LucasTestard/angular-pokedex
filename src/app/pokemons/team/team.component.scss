@@ -1,0 +1,33 @@
+button {
+  background-color: #424242;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+  font-family: Arial;
+}
+
+.play {
+  padding: 0px 0px;
+  margin: 0px;
+}
+
+#titre {
+  display: none;
+  text-align: center;
+  font-family: Arial;
+  font-size: 5em;
+  margin-top: 100px;
+}
+
+button:hover {
+  background-color: #303030;
+}
+
+mat-card {
+  margin: 20px;
+  min-height: 18em;
+}

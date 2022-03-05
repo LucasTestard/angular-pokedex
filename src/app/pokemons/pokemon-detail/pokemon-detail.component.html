@@ -1,0 +1,26 @@
+<mat-card>
+  <mat-card-title-group>
+    <img mat-card-lg-image src="/assets/img/official-artwork/{{pokemon?.id}}.png" >
+    <mat-card-title>{{ pokemon?.name }}
+      <button mat-icon-button color="accent" (click)="playSound(pokemon?.id)">
+        <mat-icon>play_circle_outline</mat-icon>
+      </button>
+      <audio autoplay src="/assets/audio/{{pokemon?.id}}.mp3"></audio>
+    </mat-card-title>
+    <mat-card-subtitle>No. {{ pokemon?.id | number:"3.0-0"}}</mat-card-subtitle>
+    <mat-list>
+      <mat-list-item>
+        <mat-chip-list>
+          <mat-chip *ngFor="let type of pokemon?.types">{{type}}</mat-chip>
+        </mat-chip-list>
+      </mat-list-item>
+      <mat-list-item>Taille: {{pokemon?.height | number:"1.1-1" }}m</mat-list-item>
+      <mat-list-item>Poids: {{pokemon?.weight | number:"1.1-1"}}kg</mat-list-item>
+    </mat-list>
+  </mat-card-title-group>
+
+  <mat-card-content>
+    {{ pokemon?.description }}
+  </mat-card-content>
+</mat-card>
+<app-team></app-team>

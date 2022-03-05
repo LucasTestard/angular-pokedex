@@ -1,0 +1,9 @@
+<mat-sidenav-container class="example-container" autosize="true">
+  <mat-sidenav mode="side" opened>
+    <app-pokemon-list (pokemonId) = "getPokemonId($event)" (search)="searchPokemon($event)"></app-pokemon-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-pokemon-detail [pokemonId]="pokemonId"></app-pokemon-detail>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
