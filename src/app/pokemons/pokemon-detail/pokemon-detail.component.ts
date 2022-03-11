@@ -1,8 +1,9 @@
 import { Location } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Pokemon } from '../models/pokemon';
 import { PokemonService } from '../pokemon.service';
+import {TeamComponent} from "../team/team.component";
 
 @Component({
   selector: 'app-pokemon-detail',
@@ -12,6 +13,9 @@ import { PokemonService } from '../pokemon.service';
 export class PokemonDetailComponent implements OnInit {
   pokemon?: Pokemon;
   @Input() pokemonId = 1
+  @ViewChild(TeamComponent)
+  private TeamComponent ?: TeamComponent
+
   constructor(private route: ActivatedRoute, private pokemonService: PokemonService, private location: Location) { }
 
   ngOnInit(): void {
@@ -37,5 +41,9 @@ export class PokemonDetailComponent implements OnInit {
 
   goBack(): void {
     this.location.back()
+  }
+
+  addPokemonToTeam(id: number): void{
+    this.TeamComponent?.addPokemon(id)
   }
 }

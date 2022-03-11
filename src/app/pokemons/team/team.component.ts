@@ -16,8 +16,6 @@ export class TeamComponent implements OnInit {
   myTeamId?: number[]
   myTeam?: Pokemon[]
 
-
-
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
@@ -34,24 +32,41 @@ export class TeamComponent implements OnInit {
 
   putTeam(): void{
     console.log("PUT TEAM")
-    const body = [1,2,3,4,5,10]
     let header = new HttpHeaders()
     header = header.set("Authorization", "Bearer " + this.loginResponse?.access_token)
     console.log(header.get("Authorization"))
-    this.pokemonService.putTeam(body, header).subscribe(data => {
-      console.log("PutTeam : " + data)
+    this.pokemonService.putTeam(this.myTeamId!, header).subscribe(data => {
+      console.log("PutTeam : " + this.myTeamId)
+      this.getTeam()
     })
+  }
+
+  deleteById(id?: number): void{
+    console.log("Delete : " + id)
+    this.myTeamId?.splice(this.myTeamId?.indexOf(id!), 1)
+    console.log(this.myTeamId)
+    this.putTeam()
+
+  }
+
+  addPokemon(id?: number): void{
+    console.log("ADD : " + id)
+    if(this.myTeamId!.length < 6){
+      this.myTeamId?.push(id!)
+      this.putTeam()
+    }
   }
 
   getTeam(): void{
     console.log("GET TEAM")
     document.getElementById("titre")!.style.display = "block"
+    document.getElementById("update")!.style.display = "block"
     let header = new HttpHeaders()
     header = header.set("Authorization", "Bearer " + this.loginResponse?.access_token)
     console.log(header.get("Authorization"))
     this.pokemonService.getTeam(header).subscribe(data => {
       this.myTeamId = data
-      console.log("getTeam" + data)
+      console.log("getTeam" + this.myTeamId)
       this.getTeamDetails()
     })
   }

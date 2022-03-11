@@ -6,8 +6,8 @@
       <mat-card-title-group>
         <img mat-card-lg-image src="/assets/img/official-artwork/{{pokemon.id}}.png" >
         <mat-card-title>{{ pokemon.name }}
-          <button mat-icon-button class="play" color="accent" (click)="playSound(pokemon?.id)">
-            <mat-icon>play_circle_outline</mat-icon>
+          <button mat-icon-button class="delete" color="accent" (click)="deleteById(pokemon.id)" >
+            <mat-icon>delete</mat-icon>
           </button>
         </mat-card-title>
         <mat-card-subtitle>No. {{ pokemon.id | number:"3.0-0"}}</mat-card-subtitle>
@@ -28,3 +28,4 @@
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>
+<button mat-stroked-button (click)="putTeam(); getTeam()" id="update">Update team</button>

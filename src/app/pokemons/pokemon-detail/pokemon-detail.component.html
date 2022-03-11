@@ -2,7 +2,7 @@
   <mat-card-title-group>
     <img mat-card-lg-image src="/assets/img/official-artwork/{{pokemon?.id}}.png" >
     <mat-card-title>{{ pokemon?.name }}
-      <button mat-icon-button color="accent" (click)="playSound(pokemon?.id)">
+      <button mat-icon-button class="play" color="accent" (click)="playSound(pokemon?.id)">
         <mat-icon>play_circle_outline</mat-icon>
       </button>
       <audio autoplay src="/assets/audio/{{pokemon?.id}}.mp3"></audio>
@@ -16,6 +16,7 @@
       </mat-list-item>
       <mat-list-item>Taille: {{pokemon?.height | number:"1.1-1" }}m</mat-list-item>
       <mat-list-item>Poids: {{pokemon?.weight | number:"1.1-1"}}kg</mat-list-item>
+      <button mat-stroked-button (click)="addPokemonToTeam(pokemon!.id)">Add {{pokemon?.name}} to team</button>
     </mat-list>
   </mat-card-title-group>
 

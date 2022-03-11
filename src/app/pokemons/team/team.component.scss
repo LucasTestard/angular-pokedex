@@ -10,7 +10,7 @@ button {
   font-family: Arial;
 }
 
-.play {
+.delete {
   padding: 0px 0px;
   margin: 0px;
 }
@@ -21,6 +21,10 @@ button {
   font-family: Arial;
   font-size: 5em;
   margin-top: 100px;
+}
+
+#update {
+  display: none;
 }
 
 button:hover {

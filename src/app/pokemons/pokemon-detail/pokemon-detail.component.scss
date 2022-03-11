@@ -1,12 +1,19 @@
 button {
-  background-color: #424242;
+  background-color: #616161;
   color: white;
   border: none;
-  padding: 0px 0px;
+  padding: 5px 10px;
+  margin: 10px;
   border-radius: 4px;
   cursor: pointer;
   cursor: hand;
   font-family: Arial;
+}
+
+.play {
+  background-color: #424242;
+  padding: 0px 0px;
+  margin: 0px;
 }
 
 button:hover {
