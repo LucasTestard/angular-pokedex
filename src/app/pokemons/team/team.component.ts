@@ -4,6 +4,7 @@ import {Auth} from "../models/auth";
 import {HttpHeaders} from "@angular/common/http";
 import {forkJoin, Observable} from "rxjs";
 import {Pokemon} from "../models/pokemon";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-team',
@@ -16,7 +17,7 @@ export class TeamComponent implements OnInit {
   myTeamId?: number[]
   myTeam?: Pokemon[]
 
-  constructor(private pokemonService: PokemonService) { }
+  constructor(private pokemonService: PokemonService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.login()
@@ -43,10 +44,13 @@ export class TeamComponent implements OnInit {
 
   deleteById(id?: number): void{
     console.log("Delete : " + id)
-    this.myTeamId?.splice(this.myTeamId?.indexOf(id!), 1)
-    console.log(this.myTeamId)
-    this.putTeam()
-
+    if(this.myTeamId!.length>1){
+      this.myTeamId?.splice(this.myTeamId?.indexOf(id!), 1)
+      console.log(this.myTeamId)
+      this.putTeam()
+    }else {
+      this.snackBar.open("Vous devez garder au moins 1 pokemon dans votre équipe", "", {duration: 5000, panelClass: ['mat-toolbar', 'mat-warn']})
+    }
   }
 
   addPokemon(id?: number): void{
@@ -54,13 +58,14 @@ export class TeamComponent implements OnInit {
     if(this.myTeamId!.length < 6){
       this.myTeamId?.push(id!)
       this.putTeam()
+    }else{
+      this.snackBar.open("Vous pouvez ajouter que 6 pokemons dans votre équipe", "", {duration: 5000, panelClass: ['mat-toolbar', 'mat-warn']})
     }
   }
 
   getTeam(): void{
     console.log("GET TEAM")
     document.getElementById("titre")!.style.display = "block"
-    document.getElementById("update")!.style.display = "block"
     let header = new HttpHeaders()
     header = header.set("Authorization", "Bearer " + this.loginResponse?.access_token)
     console.log(header.get("Authorization"))

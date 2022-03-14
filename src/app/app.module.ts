@@ -19,6 +19,9 @@ import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {PokemonsModule} from "./pokemons/pokemons.module";
 import {TeamComponent} from "./pokemons/team/team.component";
+import {FlexLayoutModule} from "@angular/flex-layout";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 
 @NgModule({
@@ -28,7 +31,6 @@ import {TeamComponent} from "./pokemons/team/team.component";
     PokemonDetailComponent,
     PokedexComponent,
     TeamComponent,
-
   ],
   imports: [
     HttpClientModule,
@@ -44,7 +46,10 @@ import {TeamComponent} from "./pokemons/team/team.component";
     MatSidenavModule,
     MatInputModule,
     FormsModule,
-    PokemonsModule
+    PokemonsModule,
+    FlexLayoutModule,
+    MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

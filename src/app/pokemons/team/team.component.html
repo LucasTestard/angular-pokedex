@@ -1,7 +1,7 @@
-<button mat-stroked-button (click)="getTeam()">My team</button>
-<h1 id="titre">MY TEAM</h1>
-<mat-grid-list cols="3">
-  <mat-grid-tile *ngFor="let pokemon of myTeam">
+<button mat-stroked-button (click)="getTeam()">Afficher mon équipe</button>
+<h1 id="titre">Mon Equipe</h1>
+<div class="divP" fxLayout="row wrap" fxLayoutGap="16px grid">
+  <div fxFlex="33%" fxFlex.sm="100%" fxFlex.xs="100%" *ngFor="let pokemon of myTeam">
     <mat-card>
       <mat-card-title-group>
         <img mat-card-lg-image src="/assets/img/official-artwork/{{pokemon.id}}.png" >
@@ -26,6 +26,5 @@
         {{ pokemon.description }}
       </mat-card-content>
     </mat-card>
-  </mat-grid-tile>
-</mat-grid-list>
-<button mat-stroked-button (click)="putTeam(); getTeam()" id="update">Update team</button>
+  </div>
+</div>

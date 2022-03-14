@@ -13,18 +13,22 @@ button {
 .delete {
   padding: 0px 0px;
   margin: 0px;
+  color: #E74C3C;
 }
 
 #titre {
   display: none;
   text-align: center;
-  font-family: Arial;
+  font-family: pokemon;
+  color: #ffcb05;
+  text-shadow: #3b5ba7 -5px 2px;
   font-size: 5em;
-  margin-top: 100px;
+  margin-top: 20px;
+  margin-bottom: 70px;
 }
 
-#update {
-  display: none;
+.divP{
+  max-width: 100%;
 }
 
 button:hover {
@@ -32,6 +36,10 @@ button:hover {
 }
 
 mat-card {
-  margin: 20px;
   min-height: 18em;
+}
+
+@font-face {
+  font-family: "pokemon";
+  src: url("/assets/police/Pokemon_Solid.ttf");
 }
